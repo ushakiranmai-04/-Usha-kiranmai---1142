@@ -1,21 +1,16 @@
-# =========================
-# Task 1 — Personal Profile Card
-# =========================
+# Enhanced Loan Eligibility System
 
-# Asking user details
-name = input("Enter your name: ")
-age = int(input("Enter your age: "))
-city = input("Enter your city: ")
-favourite_subject = input("Enter your favourite subject: ")
+age = int(input("Enter age: "))
+salary = int(input("Enter monthly salary: "))
+employment = input("Enter employment type (salaried/self-employed): ").lower()
 
-# Calculating birth year
-birth_year = 2024 - age
-
-# Displaying profile card
-print("\n===== PERSONAL PROFILE CARD =====")
-print(f"Name               : {name}")
-print(f"Age                : {age}")
-print(f"City               : {city}")
-print(f"Favourite Subject  : {favourite_subject}")
-print(f"Birth Year         : {birth_year}")
-print("=================================")
+if age < 21 or age > 60:
+    print("Rejected: Age must be between 21 and 60")
+elif salary < 25000:
+    print("Rejected: Salary must be at least ₹25,000")
+elif age >= 21 and age <= 30 and salary < 30000:
+    print("Needs guarantor")
+elif age > 55 and employment == "self-employed":
+    print("High risk, senior review needed")
+else:
+    print("Approved")
